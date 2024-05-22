@@ -1,0 +1,21 @@
+{
+  "name": "easily-mini_project",
+  "version": "1.0.0",
+  "description": "A place for both recruiters and job seeker to get the requirement fulfilled.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajat Prajapati",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-layout": "^1.0.15",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.1.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "type": "module"
+}
