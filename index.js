@@ -13,6 +13,7 @@ server.set('views', path.resolve("src", "views"));
 
 server.use(ejsLayouts);
 server.use(express.static(path.resolve('public')));
+server.use('/icons', express.static(path.join(path.resolve(), 'node_modules', 'bootstrap-icons', 'font')));
 
 // Route for the welcome page
 server.get('/', getWelcome);

@@ -9,6 +9,7 @@
   "author": "Rajat Prajapati",
   "license": "ISC",
   "dependencies": {
+    "bootstrap-icons": "^1.11.3",
     "ejs": "^3.1.10",
     "ejs-layout": "^1.0.15",
     "express": "^4.19.2",
