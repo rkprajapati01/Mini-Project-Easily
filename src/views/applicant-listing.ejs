@@ -9,40 +9,22 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Rajat</td>
-            <td>programmerrajat@gmail.com</td>
-            <td>8601436536</td>
-            <td><a href="" class="btn btn-primary">View</a></td>
-        </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Rajat</td>
-            <td>programmerrajat@gmail.com</td>
-            <td>8601436536</td>
-            <td><a href="" class="btn btn-primary">View</a></td>
-        </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Rajat</td>
-            <td>programmerrajat@gmail.com</td>
-            <td>8601436536</td>
-            <td><a href="" class="btn btn-primary">View</a></td>
-        </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Rajat</td>
-            <td>programmerrajat@gmail.com</td>
-            <td>8601436536</td>
-            <td><a href="" class="btn btn-primary">View</a></td>
-        </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Rajat</td>
-            <td>programmerrajat@gmail.com</td>
-            <td>8601436536</td>
-            <td><a href="" class="btn btn-primary">View</a></td>
-        </tr>
+        <% applicants.forEach((applicant, index)=>{ %>
+            <tr>
+                <th scope="row">
+                    <%= index+1 %>
+                </th>
+                <td>
+                    <%= applicant.name %>
+                </td>
+                <td>
+                    <%= applicant.email %>
+                </td>
+                <td>
+                    <%= applicant.contact %>
+                </td>
+                <td><a href="<%= applicant.resume %>" class="btn btn-primary">View</a></td>
+            </tr>
+            <% }) %>
     </tbody>
 </table>

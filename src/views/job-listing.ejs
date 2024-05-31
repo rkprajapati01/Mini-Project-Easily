@@ -1,229 +1,41 @@
 <div class="container d-flex flex-wrap m-4 w-100">
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <i class="bi bi-geo-alt-fill"></i> Location
-                </p>
-                <p class="d-inline-block">
-                    <i class="bi bi-currency-rupee"></i> Salary
-                </p>
+    <% jobs.forEach((job)=>{ %>
+
+        <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
+            <a class="btn btn-primary w-75" href="">Actively hiring
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-graph-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
+                </svg>
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= job.companyName %>
+                </h4>
+                <h6 class="fs-6">
+                    <%= job.jobDesignation %>
+                </h6>
+                <div class="card-body flex-column">
+                    <p class="m-0">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <%= job.jobLocation %>
+                    </p>
+                    <p class="d-inline-block">
+                        <i class="bi bi-currency-rupee"></i>
+                        <%= job.salary %>
+                    </p>
+                </div>
+                <div class="d-flex flex-wrap m-2">
+                    <% job.skillsRequired.forEach((skill)=> { %>
+                        <span class="skill">
+                            <%= skill %>
+                        </span>
+                        <% }) %>
+                </div>
+                <a href="/jobs/<%= job.id%>" class="btn btn-primary w-100">View Details</a>
             </div>
-            <div class="d-flex flex-wrap m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
         </div>
-    </div>
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                    </svg> Location
-                </p>
-                <p class="d-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path
-                            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
-                    </svg> Salary
-                </p>
-            </div>
-            <div class="d-flex flex-wrap justify-content-evenly m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
-        </div>
-    </div>
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                    </svg> Location
-                </p>
-                <p class="d-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path
-                            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
-                    </svg> Salary
-                </p>
-            </div>
-            <div class="d-flex flex-wrap justify-content-evenly m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
-        </div>
-    </div>
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                    </svg> Location
-                </p>
-                <p class="d-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path
-                            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
-                    </svg> Salary
-                </p>
-            </div>
-            <div class="d-flex flex-wrap justify-content-evenly m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
-        </div>
-    </div>
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                    </svg> Location
-                </p>
-                <p class="d-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path
-                            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
-                    </svg> Salary
-                </p>
-            </div>
-            <div class="d-flex flex-wrap justify-content-evenly m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
-        </div>
-    </div>
-    <div class="card m-2 p-2 bg-secondary-subtle" style="width: 18rem;">
-        <a class="btn btn-primary w-75" href="">Actively hiring
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
-            </svg>
-        </a>
-        <div class="card-body">
-            <h4 class="card-title">Company</h4>
-            <h6 class="fs-6">Designation</h6>
-            <div class="card-body flex-column">
-                <p class="m-0">
-                    <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                    </svg> Location
-                </p>
-                <p class="d-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path
-                            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
-                    </svg> Salary
-                </p>
-            </div>
-            <div class="d-flex flex-wrap justify-content-evenly m-2">
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-                <span class="skill">HTML</span>
-                <span class="skill">css</span>
-                <span class="skill">Js</span>
-                <span class="skill">Nodejs</span>
-            </div>
-            <a href="#" class="btn btn-primary w-100">View Details</a>
-        </div>
-    </div>
+        <% }) %>
+
 </div>

@@ -1,30 +1,96 @@
 <div class="container shadow-sm p-0">
-    <img src="images/jobDetail.png" class="w-100" alt="" style="height: 150px;">
+    <img src="/images/jobDetail.png" class="w-100" alt="" style="height: 150px;">
     <div class="container pb-2">
 
         <div class="m-2">
-            <h3><span class="text-danger">Frontend Developer</span> oppertunity in Delhi at Coding Ninjas</h3>
+            <h3><span class="text-danger">
+                    <%= job.jobDesignation %>
+                </span> oppertunity in <%= job.jobLocation %> at <%= job.companyName %>
+            </h3>
         </div>
         <div class="m-4">
-            <h2 class="text-primary">Coding Ninjas</h2>
-            <h4 class="text-success">Frontend Developer</h4>
+            <div class="d-flex">
+                <h2 class="text-primary">
+                    <%= job.companyName %>
+                </h2>
+                <% if(userEmail){ %>
+                    <a href="/jobs/<%= job.id %>/update" class="mx-3 ">
+                        <h3><i class=" bi bi-pencil-square text-success"></i></h3>
+                    </a>
+                    <a onclick="deleteJob('<%= job.id %>')" class="mx-2 " role="button">
+                        <h3><i class="bi bi-x-square text-danger "></i></i></h3>
+                    </a>
+                    <% } %>
+            </div>
+            <h4 class="text-success">
+                <%= job.jobDesignation %>
+            </h4>
             <div class="px-2">
-                <p class="m-0"><i class="bi bi-geo-alt-fill"></i> Delhi</p>
-                <p class="m-0"><i class="bi bi-currency-rupee"></i> 6LPA</p>
-                <p class="m-0"><i class="bi bi-hourglass-split"></i> Apply By 1 June 2024</p>
-                <p class="m-0"><i class="bi bi-bar-chart-line-fill"></i> Openings 5</p>
-                <p class="m-0"><i class="bi bi-people-fill text-danger"></i> Applicants 10</p>
+                <p class="m-0"><i class="bi bi-geo-alt-fill"></i>
+                    <%= job.jobLocation %>
+                </p>
+                <p class="m-0"><i class="bi bi-currency-rupee"></i>
+                    <%= job.salary %>
+                </p>
+                <p class="m-0"><i class="bi bi-hourglass-split"></i> Apply By <%= job.applyBy %>
+                </p>
+                <p class="m-0"><i class="bi bi-bar-chart-line-fill"></i> Openings <%= job.numberOfOpenings %>
+                </p>
+                <p class="m-0"><i class="bi bi-people-fill text-danger"></i> Applicants <%= job.applicants.length %>
+                        <% if(userEmail){ %>
+                            <a class="btn-link " href="/jobs/<%= job.id %>/applicants/">view</a>
+                            <% } %>
+                </p>
                 <div class="d-flex flex-wrap m-2">
-                    <span class="skill">HTML</span>
-                    <span class="skill">css</span>
-                    <span class="skill">Js</span>
-                    <span class="skill">Nodejs</span>
-                    <span class="skill">HTML</span>
-                    <span class="skill">css</span>
-                    <span class="skill">Js</span>
-                    <span class="skill">Nodejs</span>
+                    <% job.skillsRequired.forEach((skill)=>{ %>
+                        <span class="skill">
+                            <%= skill %>
+                        </span>
+                        <% }) %>
                 </div>
-                <a href="" class="btn btn-primary my-3">Apply Now</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applyModal">
+                    Apply
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-info-subtle">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Easily Application Process</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body m-3 p-3">
+                <h6>Apply in 1 step</h6>
+                <form action="/apply/<%= job.id %>" method="post" class="m-3" enctype="multipart/form-data">
+                    <div class="input-group m-1">
+                        <div class="input-group-text">Name</div>
+                        <input type="text" class="form-control" id="aplyName" name="name">
+                    </div>
+                    <div class="input-group m-1">
+                        <div class="input-group-text">Email</div>
+                        <input type="email" class="form-control" id="aplyEmail" name="email">
+                    </div>
+                    <div class="input-group m-1">
+                        <div class="input-group-text">Contact</div>
+                        <input type="text" class="form-control" id="aplyContact" name="contact">
+                    </div>
+                    <div class="input-group m-1">
+                        <div class="input-group-text">Resume</div>
+                        <input type="file" class="form-control" id="aplyResume" name="resume">
+                    </div>
+                    <button class="btn btn-success  mt-2 w-100">Submit</button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+
             </div>
         </div>
     </div>

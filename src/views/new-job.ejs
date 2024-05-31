@@ -1,0 +1,51 @@
+<div class="container w-50  my-5 d-flex flex-column p-2 bg-secondary-subtle rounded shadow-lg ">
+    <h2 class="text-center mb-4">Post a new Job</h2>
+    <form action="/jobs/new" method="post" class="g-1 ">
+
+        <select name="category" id="" class="form-select mb-2">
+            <option value="Tech">Tech</option>
+            <option value="Management">Management</option>
+            <option value="Quality">Quality</option>
+        </select>
+        <select name="designation" id="" class="form-select mb-2">
+            <option value="Intern">Intern</option>
+            <option value="Junior Developer">Junior Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="Senior Developer">Senior Developer</option>
+            <option value="Lead Developer">Lead Developer</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="Manager">Manager</option>
+        </select>
+        <div class="input-group mb-2">
+            <div class="input-group-text ">Enter Job Location</div>
+            <input type="text" name="location" class="form-control">
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-text ">Enter Company Name</div>
+            <input type="text" name="company" class="form-control">
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-text ">Salary</div>
+            <input type="text" name="salary" class="form-control">
+            <div class="input-group-text ">Openings</div>
+            <input type="number" name="openings" class="form-control">
+        </div>
+        <div class="input-group mb-2">
+            <select multiple name="skills" id="skills">
+                <option value="" disabled selected>Select the skills required for this job</option>
+                <option value="HTML">HTML</option>
+                <option value="JS">JS</option>
+                <option value="CSS">CSS</option>
+                <option value="NodeJs">Nodejs</option>
+                <option value="Bootstrap">Bootstrap</option>
+                <option value="React">React</option>
+                <option value="Express">Express</option>
+            </select>
+            <div class="input-group-text ">Apply By</div>
+            <input type="date" name="applyBy" class="form-control ">
+        </div>
+        <div class="w-100 d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-primary w-25 ">Submit</button>
+        </div>
+    </form>
+</div>
