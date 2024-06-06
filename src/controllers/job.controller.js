@@ -1,5 +1,6 @@
 import JobModel from "../models/job.model.js";
 import ApplicantModel from "../models/applicant.model.js";
+import { sendNotification } from "../notifications/mail.notification.js";
 
 export default class JobController {
   getJobListing(req, res) {
@@ -57,6 +58,7 @@ export default class JobController {
     const resumeUrl = "/resumes/" + req.file.filename;
     const newApplicant = new ApplicantModel(job.applicants.length + 1, name, email, contact, resumeUrl);
     JobModel.addApplicant(jobId, newApplicant);
+    sendNotification(newApplicant, job);
     res.redirect("/jobs");
   }
 
@@ -76,12 +78,13 @@ export default class JobController {
 
   deleteJobById(req, res) {
     const jobId = req.params.id;
-    const result = JobModel.deleteById(jobId, req.session.userEmail);
+    const userEmail = req.session.userEmail;
+    const result = JobModel.deleteById(jobId, userEmail);
+    console.log(result);
     if (result) {
-      console.log(result);
       res.redirect('/jobs');
     } else {
-      res.redirect('/404');
+      res.render("404", { errorMessage: "Register first to login ", userEmail: req.session.userEmail });
     }
   }
 }
