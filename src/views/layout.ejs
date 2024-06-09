@@ -88,15 +88,15 @@
 
                     </div>
                     <% } %>
-                        <form class="d-flex" role="search">
+                        <div class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search by designation"
-                                aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                                id="search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" onclick="searchJob()">Search</button>
+                        </div>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="search-container">
         <%- body %>
     </div>
 
@@ -124,7 +124,8 @@
                             <div class="input-group-text">Password</div>
                             <input type="text" class="form-control" id="regPassword" name="password">
                         </div>
-                        <button class="btn btn-primary m-3">Register</button>
+                        <button class="btn btn-primary m-3" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Register</button>
                     </form>
                 </div>
                 <hr>

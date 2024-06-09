@@ -43,4 +43,6 @@ server.use(
 // Route for the auth router
 server.use("/", authRouter);
 
+
+
 export default server;

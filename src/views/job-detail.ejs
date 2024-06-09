@@ -13,7 +13,7 @@
                 <h2 class="text-primary">
                     <%= job.companyName %>
                 </h2>
-                <% if(userEmail){ %>
+                <% if(userEmail && userEmail==job.jobPostedBy) {%>
                     <a href="/jobs/<%= job.id %>/update" class="mx-3 ">
                         <h3><i class=" bi bi-pencil-square text-success"></i></h3>
                     </a>
@@ -32,25 +32,31 @@
                 <p class="m-0"><i class="bi bi-currency-rupee"></i>
                     <%= job.salary %>
                 </p>
-                <p class="m-0"><i class="bi bi-hourglass-split"></i> Apply By <%= job.applyBy %>
+                <p class="m-0"><i class="bi bi-hourglass-split"></i> Apply By : <%= job.applyBy %>
                 </p>
-                <p class="m-0"><i class="bi bi-bar-chart-line-fill"></i> Openings <%= job.numberOfOpenings %>
+                <p class="m-0"><i class="bi bi-bar-chart-line-fill"></i> Openings : <%= job.numberOfOpenings %>
                 </p>
-                <p class="m-0"><i class="bi bi-people-fill text-danger"></i> Applicants <%= job.applicants.length %>
-                        <% if(userEmail){ %>
+                <p class="m-0"><i class="bi bi-people-fill text-danger"></i> Applicants : <%= job.applicants.length %>
+                        <% if(userEmail && userEmail==job.jobPostedBy) {%>
                             <a class="btn-link " href="/jobs/<%= job.id %>/applicants/">view</a>
                             <% } %>
                 </p>
+                <p class="m-0"><i class="bi bi-calendar"></i></i> Posted on : <%= job.jobPostedOn %>
+                </p>
                 <div class="d-flex flex-wrap m-2">
-                    <% job.skillsRequired.forEach((skill)=>{ %>
-                        <span class="skill">
-                            <%= skill %>
-                        </span>
-                        <% }) %>
+                    <% if(job.skillsRequired){ %>
+                        <% job.skillsRequired.forEach((skill)=>{ %>
+                            <span class="skill">
+                                <%= skill %>
+                            </span>
+                            <% }) %>
+                                <% } %>
                 </div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applyModal">
-                    Apply
-                </button>
+                <% if(!userEmail) {%>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applyModal">
+                        Apply
+                    </button>
+                    <% } %>
             </div>
         </div>
     </div>
